@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+    <script>
+        function Inputvalue(text){
+            document.getElementById('result').value += text
+        }
+        function Valueclear(){
+            document.getElementById('result').value = ""
+        }
+        function Valueslice(){
+            document.getElementById('result').value = document.getElementById('result').value.slice(0,-1)
+        }
+        function Valueout(){
+            var Final = document.getElementById('result').value;
+            document.getElementById('result').value = eval(
+                Final.replace(/x/g,"*").replace(/÷/g, "/")
+                )
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" disabled value="">
+        <table>
+            <tr>
+                <td><button class="button" onclick="Inputvalue('(')">(</button></td> 
+                <td><button class="button" onclick="Inputvalue(')')">)</button></td>
+                <td><button class="button" onclick="Valueclear()">C</button></td>
+                <td><button class="button" onclick="Valueslice()">←</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="Inputvalue('7')">7</button></td> 
+                <td><button class="button" onclick="Inputvalue('8')">8</button></td>
+                <td><button class="button" onclick="Inputvalue('9')">9</button></td>
+                <td><button class="button" onclick="Inputvalue('÷')">÷</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="Inputvalue('4')">4</button></td> 
+                <td><button class="button" onclick="Inputvalue('5')">5</button></td>
+                <td><button class="button" onclick="Inputvalue('6')">6</button></td>
+                <td><button class="button" onclick="Inputvalue('x')">x</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="Inputvalue('1')">1</button></td> 
+                <td><button class="button" onclick="Inputvalue('2')">2</button></td>
+                <td><button class="button" onclick="Inputvalue('3')">3</button></td>
+                <td><button class="button" onclick="Inputvalue('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="Inputvalue('0')">0</button></td> 
+                <td><button class="button" onclick="Inputvalue('.')">.</button></td>
+                <td><button class="button" onclick="Valueout()">=</button></td>
+                <td><button class="button" onclick="Inputvalue('+')">+</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
